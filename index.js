@@ -43,5 +43,5 @@ function checkDepth(node) {
     var childDepth = 1 + checkDepth(childs[i])
     if(childDepth > depth)
   }
-  return depth
+  return depth, child
 }
