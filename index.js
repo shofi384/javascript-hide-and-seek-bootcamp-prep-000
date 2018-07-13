@@ -21,3 +21,10 @@ function deepestChild() {
   var div = document.querySelector('#grand-node')
   
 }
+
+function checkDepth(node) {
+  if(node === undefined) {
+    return 0
+  }
+  
+}
