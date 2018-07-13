@@ -8,13 +8,12 @@ function nestedTarget() {
 
 function increaseRankBy(n) {
   var divs = document.getElementsByClassName('ranked-list')
-  var lists
-  for(let i=0; i<divs.length; i++) {
-    lists += divs[i].getElementsByTagName('li')
-  }
   
-  for(let i=0; i<lists.length; i++) {
-    lists[i].innerHTML = (parseInt(lists[i].innerHTML) + n).toString()
+  for(let i=0; i<divs.length; i++) {
+    var lists = divs[i].getElementsByTagName('li')
+    for(let j=0; j<lists.length; j++) {
+      lists[j].innerHTML = (parseInt(lists[j].innerHTML) + n).toString()
+    }
   }
 }
 
