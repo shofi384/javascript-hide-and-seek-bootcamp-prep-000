@@ -20,10 +20,9 @@ function increaseRankBy(n) {
 function deepestChild() {
   var deepestNode = document.querySelector('#grand-node')
   var depth = 0
-  var tree = deepestNode.children
-  
-  for(let i=0; i<tree.length; i++) {
-    var curNode, curDepth = checkDepth(tree[i], 0)
+
+  for(let i=0; i<document.querySelector('#grand-node').children.length; i++) {
+    var curNode, curDepth = checkDepth(document.querySelector('#grand-node').children[i], 0)
     if(curDepth > depth) {
       depth = curDepth
       deepestNode = curNode
@@ -44,10 +43,8 @@ function checkDepth(node, depth) {
   var deepestNode = curNode
   var deepestDepth = curDepth
   
-  var childs = node.children
-  
-  for(let i=0; i<childs.length; i++) {
-    var childNode, childDepth = checkDepth(childs[i], curDepth)
+  for(let i=0; i<node.children.length; i++) {
+    var childNode, childDepth = checkDepth(node.children[i], curDepth)
     if(childDepth > deepestDepth) {
       deepestDepth = childDepth
       deepestNode = childNode
@@ -55,5 +52,3 @@ function checkDepth(node, depth) {
   }
   return deepestNode, deepestDepth
 }
-
-
