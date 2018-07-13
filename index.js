@@ -18,30 +18,40 @@ function increaseRankBy(n) {
 }
 
 function deepestChild() {
-  var deepestNode, depth = 0
   var deepestNode = document.querySelector('#grand-node')
+  var depth = 0
   var tree = deepestNode.children
   
   for(let i=0; i<tree.length; i++) {
-    var curDepth = checkDepth(tree[i])
+    var curNode, curDepth = checkDepth(tree[i], 0)
     if(curDepth > depth) {
       depth = curDepth
-      deepestNode = tree[i]
+      deepestNode = curNode
     }
   }
   
   return deepestNode
 }
 
-function checkDepth(node) {
+function checkDepth(node, depth) {
   if(node === undefined) {
-    return 0
+    return node, depth
   }
-  var depth = 1
+  
+  var curNode = node
+  var curDepth = depth + 1
+  
+  var deepestNode = curNode
+  var deepestDepth = curDepth
+  
   var childs = node.children
+  
   for(let i=0; i<childs.length; i++) {
-    var childDepth = 1 + checkDepth(childs[i])
-    if(childDepth > depth)
+    var childNode, childDepth = checkDepth(childs[i], curDepth)
+    if(childDepth > deepestDepth) {
+      deepestDepth = childDepth
+      deepestNode = childNode
+    }
   }
-  return depth, child
+  return deepestNode, deepestDepth
 }
