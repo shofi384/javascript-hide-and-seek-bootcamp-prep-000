@@ -14,7 +14,7 @@ function increaseRankBy(n) {
   }
   
   for(let i=0; i<lists.length; i++) {
-    lists[i].innerText = (parseInt(lists[i].innerText) + n).toString()
+    lists[i].value = (parseInt(lists[i].value) + n).toString()
   }
 }
 
